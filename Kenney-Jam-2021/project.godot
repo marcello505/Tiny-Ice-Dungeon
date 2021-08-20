@@ -8,11 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "ChessPiece",
+"language": "GDScript",
+"path": "res://ChessPiece.gd"
+} ]
+_global_script_class_icons={
+"ChessPiece": "res://imports/editor_icons/ChessPiece-icon.png"
+}
+
 [application]
 
 config/name="Kenney-Jam-2021"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=512
+window/size/height=300
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
 
 [physics]
 
