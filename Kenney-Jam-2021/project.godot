@@ -34,6 +34,7 @@ _global_script_class_icons={
 
 config/name="Kenney-Jam-2021"
 run/main_scene="res://Main.tscn"
+boot_splash/image="res://imports/Kenney-Jam-Logo.png"
 config/icon="res://icon.png"
 
 [display]
