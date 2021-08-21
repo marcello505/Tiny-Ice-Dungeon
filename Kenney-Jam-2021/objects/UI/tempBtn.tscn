@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/UI/tempBtn.gd" type="Script" id=1]
+
+[node name="tempBtn" type="Button"]
+anchor_right = 0.175595
+anchor_bottom = 0.0595238
+margin_right = -59.0
+margin_bottom = -20.0
+text = "Sample"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="." to="." method="_btn_Pressed"]

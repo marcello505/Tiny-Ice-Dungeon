@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://imports/Kenney-Jam-Logo.png" type="Texture" id=1]
-[ext_resource path="res://objects/UI/StartBtn.gd" type="Script" id=2]
+[ext_resource path="res://objects/UI/tempBtn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://imports/Kenney-Jam-Logo.png" type="Texture" id=2]
 [ext_resource path="res://objects/UI/QuitBtn.gd" type="Script" id=3]
 
 [node name="Control" type="Control"]
@@ -39,7 +39,7 @@ margin_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 168, 84 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -58,17 +58,22 @@ margin_right = 212.0
 margin_bottom = 90.0
 custom_constants/separation = 15
 
-[node name="StartBtn" type="Button" parent="MenuContainer/ButtonsContainer/HAlign"]
+[node name="StartBtn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 89.0
 margin_bottom = 20.0
 text = "Start"
-script = ExtResource( 2 )
+scene = "res://levels/Level_1.tscn"
 
-[node name="LevelBtn" type="Button" parent="MenuContainer/ButtonsContainer/HAlign"]
+[node name="LevelBtn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 35.0
 margin_right = 89.0
 margin_bottom = 55.0
 text = "Level Select"
+scene = "res://scenes/LevelSelect.tscn"
 
 [node name="QuitBtn" type="Button" parent="MenuContainer/ButtonsContainer/HAlign"]
 margin_top = 70.0
@@ -84,5 +89,4 @@ margin_bottom = 320.0
 text = "Programmer: Marcello Haddeman
 Designer: Pedro Krieckaert"
 
-[connection signal="pressed" from="MenuContainer/ButtonsContainer/HAlign/StartBtn" to="MenuContainer/ButtonsContainer/HAlign/StartBtn" method="_btn_Pressed"]
 [connection signal="pressed" from="MenuContainer/ButtonsContainer/HAlign/QuitBtn" to="MenuContainer/ButtonsContainer/HAlign/QuitBtn" method="_btn_Pressed"]

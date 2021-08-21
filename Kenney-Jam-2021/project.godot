@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Kenney-Jam-2021"
-run/main_scene="res://scenes/Menu.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 boot_splash/image="res://imports/Kenney-Jam-Logo.png"
 config/icon="res://icon.png"
 

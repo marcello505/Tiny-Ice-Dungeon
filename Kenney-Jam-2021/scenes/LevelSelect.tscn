@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://imports/Kenney-Jam-Logo.png" type="Texture" id=1]
+[ext_resource path="res://objects/UI/tempBtn.tscn" type="PackedScene" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -336.0
+margin_bottom = -336.0
+rect_min_size = Vector2( 336, 336 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -296.0
+margin_bottom = -296.0
+rect_min_size = Vector2( 336, 336 )
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogoContainer" type="HBoxContainer" parent="MenuContainer"]
+margin_top = 21.0
+margin_right = 336.0
+margin_bottom = 105.0
+alignment = 1
+
+[node name="KenneyLogo" type="TextureRect" parent="MenuContainer/LogoContainer"]
+margin_left = 84.0
+margin_right = 252.0
+margin_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 168, 84 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="MenuContainer"]
+margin_top = 155.0
+margin_right = 336.0
+margin_bottom = 315.0
+alignment = 1
+
+[node name="HAlign" type="VBoxContainer" parent="MenuContainer/ButtonsContainer"]
+margin_left = 139.0
+margin_right = 197.0
+margin_bottom = 160.0
+custom_constants/separation = 15
+
+[node name="Lv1Btn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 58.0
+margin_bottom = 20.0
+text = "Level 1"
+scene = "res://levels/Level_1.tscn"
+
+[node name="Lv2Btn2" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 35.0
+margin_right = 58.0
+margin_bottom = 55.0
+text = "Level 2"
+scene = "res://levels/Level_2.tscn"
+
+[node name="Lv3Btn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 70.0
+margin_right = 58.0
+margin_bottom = 90.0
+text = "Level 3"
+scene = "res://levels/Level_3.tscn"
+
+[node name="Lv4Btn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 105.0
+margin_right = 58.0
+margin_bottom = 125.0
+text = "Level 4"
+scene = "res://levels/Level_4.tscn"
+
+[node name="ReturnBtn5" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 140.0
+margin_right = 58.0
+margin_bottom = 160.0
+text = "Back"
+scene = "res://scenes/MainMenu.tscn"
