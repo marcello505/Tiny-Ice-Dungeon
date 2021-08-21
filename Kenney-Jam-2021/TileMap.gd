@@ -5,6 +5,12 @@ const KEY_ID = "id"
 const KEY_COORD = "coord"
 const KEY_AUTOTILE_COORD = "autotile_coord"
 
+func _process(_delta):
+	#Center display
+	var rect := get_viewport_rect()
+	position = rect.size * 0.5
+	
+
 func _physics_process(delta):
 	if(Input.is_action_just_pressed("rotate_clockwise")):
 		rotate_clockwise()
@@ -14,50 +20,54 @@ func _physics_process(delta):
 func rotate_clockwise():
 	var array = _gather_info_cells()
 	for item in array:
-		var coord:Vector2 = item[KEY_COORD]
-		var result := Vector2()
-		if(coord.x >= 0 && coord.y >= 0):
-			#Bottom Right
-			result.x = coord.y * -1 - 1
-			result.y = coord.x
-		elif(coord.x <= -1 && coord.y >= 0):
-			#Bottom Left
-			result.x = coord.y * -1 - 1
-			result.y = coord.x
-		elif(coord.x <= -1 && coord.y <= -1):
-			#Top Left
-			result.x = coord.y * -1 - 1
-			result.y = coord.x
-		elif(coord.x >= 0 && coord.y <= -1):
-			#Top Right
-			result.x = coord.y * -1 - 1
-			result.y = coord.x
-		item[KEY_COORD] = result
+		item[KEY_COORD] = _calculate_clockwise_grid_rotation(item[KEY_COORD])
 	_set_array_cells(array)
 
 func rotate_counter_clockwise():
 	var array = _gather_info_cells()
 	for item in array:
-		var coord:Vector2 = item[KEY_COORD]
-		var result := Vector2()
-		if(coord.x >= 0 && coord.y >= 0):
-			#Bottom Right
-			result.y = coord.x * -1 - 1
-			result.x = coord.y
-		elif(coord.x <= -1 && coord.y >= 0):
-			#Bottom Left
-			result.y = coord.x * -1 - 1
-			result.x = coord.y
-		elif(coord.x <= -1 && coord.y <= -1):
-			#Top Left
-			result.y = coord.x * -1 - 1
-			result.x = coord.y
-		elif(coord.x >= 0 && coord.y <= -1):
-			#Top Right
-			result.y = coord.x * -1 - 1
-			result.x = coord.y
-		item[KEY_COORD] = result
+		item[KEY_COORD] = _calculate_counter_clockwise_grid_rotation(item[KEY_COORD])
 	_set_array_cells(array)
+
+func _calculate_clockwise_grid_rotation(coord : Vector2)->Vector2:
+	var result := Vector2()
+	if(coord.x >= 0 && coord.y >= 0):
+		#Bottom Right
+		result.x = coord.y * -1 - 1
+		result.y = coord.x
+	elif(coord.x <= -1 && coord.y >= 0):
+		#Bottom Left
+		result.x = coord.y * -1 - 1
+		result.y = coord.x
+	elif(coord.x <= -1 && coord.y <= -1):
+		#Top Left
+		result.x = coord.y * -1 - 1
+		result.y = coord.x
+	elif(coord.x >= 0 && coord.y <= -1):
+		#Top Right
+		result.x = coord.y * -1 - 1
+		result.y = coord.x
+	return result
+
+func _calculate_counter_clockwise_grid_rotation(coord : Vector2)->Vector2:
+	var result := Vector2()
+	if(coord.x >= 0 && coord.y >= 0):
+		#Bottom Right
+		result.y = coord.x * -1 - 1
+		result.x = coord.y
+	elif(coord.x <= -1 && coord.y >= 0):
+		#Bottom Left
+		result.y = coord.x * -1 - 1
+		result.x = coord.y
+	elif(coord.x <= -1 && coord.y <= -1):
+		#Top Left
+		result.y = coord.x * -1 - 1
+		result.x = coord.y
+	elif(coord.x >= 0 && coord.y <= -1):
+		#Top Right
+		result.y = coord.x * -1 - 1
+		result.x = coord.y
+	return result
 
 func _set_array_cells(cells:Array):
 	clear()

@@ -1,4 +1,5 @@
 extends ChessPiece
+class_name Player
 
 #CONSTS
 const WALL_ID = 0
@@ -6,21 +7,31 @@ const VICTORY_ID = 1
 
 #ONREADY VARS
 onready var _timer : Timer = $MovementTimer
+onready var _rayCast : RayCast2D = $RayCast2D
 
 #GLOBAL VARS
 var direction := Vector2() #Current moving direction
 
 
 func _physics_process(delta):
+	piece_type = Types.PLAYER
 	direction = _get_input_direction()
-	_handle_current_tile()
 	_handle_movement()
 
 func _handle_current_tile():
 	_update_grid_position()
-	match(_tileMap.get_cell(grid_position.x, grid_position.y)):
-		VICTORY_ID:
-			visible = false
+	_rayCast.position = Vector2()
+	if(_rayCast.is_colliding()):
+		var object = _rayCast.get_collider()
+		if(object.has_method("get_piece_type")):
+			match(object.get_piece_type()):
+				Types.GOAL:
+					#Add win handling here.
+					print("You Win!")
+	else:
+		match(_tileMap.get_cell(grid_position.x, grid_position.y)):
+			_:
+				pass
 
 func _handle_movement():
 	_update_grid_position()
@@ -62,6 +73,5 @@ func _get_input_direction()->Vector2:
 
 
 func _on_MovementTimer_timeout():
-	_handle_current_tile()
 	_handle_movement()
-	_timer.start()
+	_handle_current_tile()
