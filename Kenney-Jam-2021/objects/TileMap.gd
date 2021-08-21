@@ -40,6 +40,12 @@ func can_player_move()->bool:
 				result = false;
 	return result;
 
+func goal_reached():
+	emit_signal("goal_reached")
+
+func player_died():
+	emit_signal("player_died")
+
 #ROTATION METHODS
 func rotate_clockwise():
 	var array = _gather_info_cells()
