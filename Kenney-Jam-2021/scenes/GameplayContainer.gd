@@ -3,6 +3,7 @@ class_name GameplayContainer
 
 #ONREADY VARS
 onready var _levelLayer = $LevelLayer
+onready var _animationPlayer : AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	_load_level()
@@ -35,8 +36,16 @@ func _load_level():
 func _look_for_signals_on_node(node : Node)->bool:
 	var result := false;
 	if(node.has_signal("goal_reached") && node.has_signal("player_died")):
-		var sneed : RotatingTileMap = node
-		var error = sneed.connect("goal_reached", self, "_on_level_complete")
+		var rot_tile_map : RotatingTileMap = node
+		rot_tile_map.connect("goal_reached", self, "_on_level_complete")
+		rot_tile_map.connect("rotate_clockwise", self, "anim_rotate_clockwise")
+		rot_tile_map.connect("rotate_counter_clockwise", self, "anim_rotate_counter_clockwise")
 		result = true
 		
 	return result
+
+func anim_rotate_clockwise():
+	_animationPlayer.play("Rotate_Clockwise")
+
+func anim_rotate_counter_clockwise():
+	_animationPlayer.play("Rotate_Counter_Clockwise")

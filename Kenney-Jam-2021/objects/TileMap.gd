@@ -3,6 +3,8 @@ class_name RotatingTileMap
 
 signal player_died
 signal goal_reached
+signal rotate_clockwise
+signal rotate_counter_clockwise
 
 #CONSTS
 const KEY_ID = "id"
@@ -53,6 +55,7 @@ func rotate_clockwise():
 		item[KEY_COORD] = calculate_clockwise_grid_rotation(item[KEY_COORD])
 	_set_array_cells(array)
 	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME, "rotate", "rotate_clockwise")
+	emit_signal("rotate_clockwise")
 
 func rotate_counter_clockwise():
 	var array = _gather_info_cells()
@@ -60,6 +63,7 @@ func rotate_counter_clockwise():
 		item[KEY_COORD] = calculate_counter_clockwise_grid_rotation(item[KEY_COORD])
 	_set_array_cells(array)
 	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME, "rotate", "rotate_counter_clockwise")
+	emit_signal("rotate_counter_clockwise")
 
 func calculate_clockwise_grid_rotation(coord : Vector2)->Vector2:
 	var result := Vector2()
