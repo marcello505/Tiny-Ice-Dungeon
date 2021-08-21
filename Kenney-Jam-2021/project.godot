@@ -26,8 +26,8 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=512
-window/size/height=300
+window/size/width=336
+window/size/height=336
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -35,6 +35,19 @@ window/stretch/aspect="keep"
 
 texture={
 "flags/filter": false
+}
+
+[input]
+
+rotate_clockwise={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+rotate_counter_clockwise={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+ ]
 }
 
 [physics]
