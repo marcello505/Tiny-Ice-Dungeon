@@ -19,7 +19,7 @@ func _ready():
 	piece_type = Types.PLAYER
 
 func _physics_process(delta):
-	if(!handle_physics_process):
+	if(!handle_physics_process || !_tileMap.can_player_move()):
 		return
 	_update_input_direction()
 	if(!_interact()):

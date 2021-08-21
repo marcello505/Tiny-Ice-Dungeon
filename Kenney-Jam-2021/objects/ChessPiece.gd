@@ -14,6 +14,7 @@ enum Types {
 #CONSTS
 const GROUP_RESET = "reset"
 const GROUP_ROTATE = "rotate"
+const GROUP_MOVEABLE = "moveable"
 
 #ONREADY VARS
 onready var _tileMap : RotatingTileMap = $".."
