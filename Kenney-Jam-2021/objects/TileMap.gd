@@ -31,6 +31,15 @@ func reset():
 	_set_array_cells(default_cells)
 	get_tree().call_group("reset", "reset")
 
+func can_player_move()->bool:
+	var result = true;
+	var moveable_objects = get_tree().get_nodes_in_group("moveable")
+	for item in moveable_objects:
+		if(item.has_method("is_moving")):
+			if(item.is_moving()):
+				result = false;
+	return result;
+
 #ROTATION METHODS
 func rotate_clockwise():
 	var array = _gather_info_cells()
