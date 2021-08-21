@@ -4,6 +4,7 @@ class_name Player
 #CONSTS
 const PIT_ID = -1
 const WALL_ID = 0
+const DRY_PATCH_ID = 2
 
 #ONREADY VARS
 onready var _timer : Timer = $MovementTimer
@@ -20,6 +21,7 @@ func _physics_process(delta):
 	_update_input_direction()
 	if(!_interact()):
 		_handle_movement()
+	_handle_current_tile()
 
 func _interact():
 	if(direction == Vector2()):
@@ -43,6 +45,10 @@ func _handle_current_tile():
 		match(_tileMap.get_cell(grid_position.x, grid_position.y)):
 			PIT_ID:
 				fall()
+			DRY_PATCH_ID:
+				_timer.stop()
+				direction = Vector2()
+				set_physics_process(true)
 
 func _handle_movement():
 	_update_grid_position()
