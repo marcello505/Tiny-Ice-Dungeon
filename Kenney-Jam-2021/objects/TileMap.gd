@@ -1,6 +1,8 @@
 extends TileMap
 class_name RotatingTileMap
 
+signal player_died
+signal goal_reached
 
 #CONSTS
 const KEY_ID = "id"

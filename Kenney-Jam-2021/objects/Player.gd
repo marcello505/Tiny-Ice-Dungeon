@@ -26,12 +26,11 @@ func _handle_current_tile():
 		if(object.has_method("get_piece_type")):
 			match(object.get_piece_type()):
 				Types.GOAL:
-					#Add win handling here.
-					print("You Win!")
+					_tileMap.emit_signal("goal_reached")
 	else:
 		match(_tileMap.get_cell(grid_position.x, grid_position.y)):
 			PIT_ID:
-				pass
+				fall()
 
 func _handle_movement():
 	_update_grid_position()
@@ -83,7 +82,14 @@ func _on_MovementTimer_timeout():
 
 func reset():
 	.reset()
+	visible = true
 	direction = Vector2()
 	_timer.stop()
 	set_physics_process(true)
 	
+#AAAAAAAAH I'M FALLING
+func fall():
+	visible = false
+	_timer.stop()
+	set_physics_process(false)
+	_tileMap.emit_signal("player_died")
