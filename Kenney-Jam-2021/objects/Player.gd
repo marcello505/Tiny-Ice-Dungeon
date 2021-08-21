@@ -54,6 +54,11 @@ func _handle_movement():
 	_update_grid_position()
 	if(direction == Vector2()):
 		return
+	if(_is_inside_wall()):
+		#Don't move if you're stuck in a wall lmao
+		print("You're stuck!")
+		return
+	
 	var new_grid_position = grid_position + direction
 	if(_can_move_to_grid_pos(new_grid_position)):
 		position += direction * cell_size
@@ -65,21 +70,27 @@ func _handle_movement():
 		_timer.stop()
 		set_physics_process(true)
 	
+
+func _is_inside_wall()->bool:
+	var result = false;
+	var object_type = _rayCast.get_chess_piece_object_type(Vector2())
+	match(object_type):
+		Types.PUSH_BLOCK:
+			result = true
+	match(_tileMap.get_cell(grid_position.x, grid_position.y)):
+		WALL_ID:
+			result = true
+	return result
+
 func _can_move_to_grid_pos(grid_pos:Vector2)->bool:
 	var result = true;
-	#CHECK NEW TILE FOR OBJECTS
-	_rayCast.position = Vector2() + (direction * cell_size)
-	_rayCast.force_raycast_update()
-	if(_rayCast.is_colliding()):
-		var object = _rayCast.get_collider()
-		if(object.has_method("get_piece_type")):
-			match(object.get_piece_type()):
-				Types.PUSH_BLOCK:
-					result = false;
-	else:
-		match(_tileMap.get_cell(grid_pos.x, grid_pos.y)):
-			WALL_ID:
-				result = false;
+	var object_type = _rayCast.get_chess_piece_object_type(Vector2() + (direction * cell_size))
+	match(object_type):
+		Types.PUSH_BLOCK:
+			result = false;
+	match(_tileMap.get_cell(grid_pos.x, grid_pos.y)):
+		WALL_ID:
+			result = false;
 	return result;
 
 #GETTERS AND SETTERS

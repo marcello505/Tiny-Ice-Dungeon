@@ -37,14 +37,14 @@ func rotate_clockwise():
 	for item in array:
 		item[KEY_COORD] = calculate_clockwise_grid_rotation(item[KEY_COORD])
 	_set_array_cells(array)
-	get_tree().call_group("rotate", "rotate_clockwise")
+	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME, "rotate", "rotate_clockwise")
 
 func rotate_counter_clockwise():
 	var array = _gather_info_cells()
 	for item in array:
 		item[KEY_COORD] = calculate_counter_clockwise_grid_rotation(item[KEY_COORD])
 	_set_array_cells(array)
-	get_tree().call_group("rotate", "rotate_counter_clockwise")
+	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME, "rotate", "rotate_counter_clockwise")
 
 func calculate_clockwise_grid_rotation(coord : Vector2)->Vector2:
 	var result := Vector2()
