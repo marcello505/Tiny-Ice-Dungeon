@@ -13,11 +13,14 @@ onready var _rayCast : ChessPieceRayCast = $RayCast2D
 #GLOBAL VARS
 var direction := Vector2() #Current moving direction
 var handle_inputs := true #If this object should act like a player but not take inputs then set this to false
+var handle_physics_process := true
 
 func _ready():
 	piece_type = Types.PLAYER
 
 func _physics_process(delta):
+	if(!handle_physics_process):
+		return
 	_update_input_direction()
 	if(!_interact()):
 		_handle_movement()

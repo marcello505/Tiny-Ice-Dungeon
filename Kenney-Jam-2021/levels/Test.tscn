@@ -12,10 +12,12 @@ tile_data = PoolIntArray( -589834, 0, 0, -589833, 0, 0, -589832, 0, 0, -589831, 
 
 [node name="Player" parent="TileMap" instance=ExtResource( 2 )]
 position = Vector2( -136.479, 135.515 )
-z_index = 1
 
 [node name="Goal" parent="TileMap" instance=ExtResource( 1 )]
 position = Vector2( -132.614, -134.502 )
 
 [node name="PushBlock" parent="TileMap" instance=ExtResource( 4 )]
-position = Vector2( 135.472, 136.213 )
+position = Vector2( -133.288, 41.0763 )
+
+[node name="PushBlock2" parent="TileMap" instance=ExtResource( 4 )]
+position = Vector2( -135.072, 89.2393 )

@@ -3,6 +3,7 @@ extends Player
 func _ready():
 	piece_type = Types.PUSH_BLOCK
 	handle_inputs = false
+	handle_physics_process = false
 	add_to_group(GROUP_ROTATE)
 
 func interact():

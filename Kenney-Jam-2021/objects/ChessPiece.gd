@@ -54,12 +54,14 @@ func interact()->bool:
 	return false;
 
 func rotate_clockwise():
+	_update_grid_position()
 	grid_position = _tileMap.calculate_clockwise_grid_rotation(grid_position)
 	position = _tileMap.map_to_world(grid_position)
 	_center_position_on_grid()
 	
 
 func rotate_counter_clockwise():
+	_update_grid_position()
 	grid_position = _tileMap.calculate_counter_clockwise_grid_rotation(grid_position)
 	position = _tileMap.map_to_world(grid_position)
 	_center_position_on_grid()
