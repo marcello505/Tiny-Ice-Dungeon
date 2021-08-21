@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/UI/levelButton.gd" type="Script" id=1]
+
+[node name="StartBtn" type="Button"]
+margin_right = 89.0
+margin_bottom = 20.0
+text = "Start Game"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

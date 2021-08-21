@@ -1,7 +1,7 @@
-extends Control
+extends CenterContainer
 
-onready var buttonContainer := $MenuContainer/ButtonsContainer/HAlign
+export(NodePath) var BUTTON_CONTAINER_PATH = NodePath("MenuContainer/ButtonsContainer/HAlign")
 
 func _ready():
-	var firstBtn = buttonContainer.get_children()
+	var firstBtn = get_node(BUTTON_CONTAINER_PATH).get_children()
 	firstBtn[0].grab_focus()
