@@ -4,11 +4,13 @@ class_name ChessPiece, "res://imports/editor_icons/ChessPiece-icon.png"
 #ENUMS
 enum Types {
 	PLAYER,
-	GOAL
+	GOAL,
+	PUSH_BLOCK
 }
 
 #CONSTS
 const GROUP_RESET = "reset"
+const GROUP_ROTATE = "rotate"
 
 #ONREADY VARS
 onready var _tileMap : RotatingTileMap = $".."
@@ -46,3 +48,18 @@ func _center_position_on_grid():
 func reset():
 	position = starting_position
 	_update_grid_position()
+
+func interact()->bool:
+	#Subclasses can use this method to program some interaction logic.
+	return false;
+
+func rotate_clockwise():
+	grid_position = _tileMap.calculate_clockwise_grid_rotation(grid_position)
+	position = _tileMap.map_to_world(grid_position)
+	_center_position_on_grid()
+	
+
+func rotate_counter_clockwise():
+	grid_position = _tileMap.calculate_counter_clockwise_grid_rotation(grid_position)
+	position = _tileMap.map_to_world(grid_position)
+	_center_position_on_grid()
