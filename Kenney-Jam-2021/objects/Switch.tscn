@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://objects/Goal.gd" type="Script" id=1]
+[ext_resource path="res://objects/ChessPiece.gd" type="Script" id=1]
 [ext_resource path="res://imports/1bitpack_kenney_1.1/Tilesheet/colored_transparent_packed.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 5 )
 
-[node name="Goal" type="Area2D"]
+[node name="Switch" type="Area2D"]
 script = ExtResource( 1 )
+COLLISIONSHAPE2D_NODE = NodePath("../ChessPiece/CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+hframes = 2
 region_enabled = true
-region_rect = Rect2( 272, 128, 16, 16 )
+region_rect = Rect2( 48, 160, 32, 16 )

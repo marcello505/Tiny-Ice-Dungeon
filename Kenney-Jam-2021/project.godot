@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "ChessPiece",
 "language": "GDScript",
-"path": "res://ChessPiece.gd"
+"path": "res://objects/ChessPiece.gd"
 }, {
 "base": "ChessPiece",
 "class": "Goal",
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "ChessPiece",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player.gd"
+"path": "res://objects/Player.gd"
 } ]
 _global_script_class_icons={
 "ChessPiece": "res://imports/editor_icons/ChessPiece-icon.png",
@@ -69,4 +69,5 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
+environment/default_clear_color=Color( 0.278431, 0.176471, 0.235294, 1 )
 environment/default_environment="res://default_env.tres"
