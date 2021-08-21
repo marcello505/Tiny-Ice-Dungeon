@@ -30,3 +30,5 @@ position = Vector2( -86.5, 28 )
 
 [node name="PushBlock2" parent="TileMap" instance=ExtResource( 6 )]
 position = Vector2( -62, 28.5 )
+
+[connection signal="goal_reached" from="TileMap" to="TileMap" method="_on_TileMap_goal_reached"]

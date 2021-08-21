@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objects/Door.gd"
 }, {
+"base": "Node",
+"class": "GameplayContainer",
+"language": "GDScript",
+"path": "res://scenes/GameplayContainer.gd"
+}, {
 "base": "ChessPiece",
 "class": "Goal",
 "language": "GDScript",
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "ChessPiece": "res://imports/editor_icons/ChessPiece-icon.png",
 "ChessPieceRayCast": "",
 "Door": "",
+"GameplayContainer": "",
 "Goal": "",
 "Player": "",
 "RotatingTileMap": "",
@@ -65,7 +71,7 @@ config/icon="res://icon.png"
 
 window/size/width=336
 window/size/height=336
-window/stretch/mode="viewport"
+window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
 [importer_defaults]
@@ -101,3 +107,9 @@ common/enable_pause_aware_picking=true
 2d/snapping/use_gpu_pixel_snap=true
 environment/default_clear_color=Color( 0.278431, 0.176471, 0.235294, 1 )
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false
+
+[tinyicedungeon]
+
+level_select/levels_available=[ "res://levels/Level_1.tscn", "res://levels/Level_2.tscn", "res://levels/Level_3.tscn", "res://levels/Level_4.tscn", "res://levels/Level_5.tscn", "res://levels/Level_6.tscn", "res://levels/Level_7.tscn" ]
+level_select/current_level=0

@@ -41,8 +41,8 @@ func _handle_current_tile():
 	match(object_type):
 		Types.GOAL:
 			print("You Win!")
+			_tileMap.goal_reached()
 			_timer.stop()
-			_tileMap.emit_signal("goal_reached")
 	match(_tileMap.get_cell(grid_position.x, grid_position.y)):
 		PIT_ID:
 			fall()
@@ -143,4 +143,4 @@ func fall():
 	visible = false
 	_timer.stop()
 	set_physics_process(false)
-	_tileMap.emit_signal("player_died")
+	_tileMap.player_died()

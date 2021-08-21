@@ -4,22 +4,15 @@
 [ext_resource path="res://imports/Kenney-Jam-Logo.png" type="Texture" id=2]
 [ext_resource path="res://objects/UI/MenuControl.gd" type="Script" id=4]
 
-[node name="Control" type="Control"]
+[node name="Control" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -336.0
-margin_bottom = -336.0
 rect_min_size = Vector2( 336, 336 )
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MenuContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -296.0
-margin_bottom = -296.0
+margin_right = 336.0
+margin_bottom = 336.0
 rect_min_size = Vector2( 336, 336 )
 custom_constants/separation = 50
 alignment = 1
