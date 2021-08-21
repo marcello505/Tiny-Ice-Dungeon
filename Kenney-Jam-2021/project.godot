@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://objects/ChessPieceRayCast.gd"
 }, {
 "base": "ChessPiece",
+"class": "Door",
+"language": "GDScript",
+"path": "res://objects/Door.gd"
+}, {
+"base": "ChessPiece",
 "class": "Goal",
 "language": "GDScript",
 "path": "res://objects/Goal.gd"
@@ -33,13 +38,20 @@ _global_script_classes=[ {
 "class": "RotatingTileMap",
 "language": "GDScript",
 "path": "res://objects/TileMap.gd"
+}, {
+"base": "ChessPiece",
+"class": "Switch",
+"language": "GDScript",
+"path": "res://objects/Switch.gd"
 } ]
 _global_script_class_icons={
 "ChessPiece": "res://imports/editor_icons/ChessPiece-icon.png",
 "ChessPieceRayCast": "",
+"Door": "",
 "Goal": "",
 "Player": "",
-"RotatingTileMap": ""
+"RotatingTileMap": "",
+"Switch": ""
 }
 
 [application]

@@ -38,20 +38,18 @@ func _interact():
 func _handle_current_tile():
 	_update_grid_position()
 	var object_type = _rayCast.get_chess_piece_object_type(Vector2())
-	if(object_type != -1):
-		match(object_type):
-			Types.GOAL:
-				print("You Win!")
-				_timer.stop()
-				_tileMap.emit_signal("goal_reached")
-	else:
-		match(_tileMap.get_cell(grid_position.x, grid_position.y)):
-			PIT_ID:
-				fall()
-			DRY_PATCH_ID:
-				_timer.stop()
-				direction = Vector2()
-				set_physics_process(true)
+	match(object_type):
+		Types.GOAL:
+			print("You Win!")
+			_timer.stop()
+			_tileMap.emit_signal("goal_reached")
+	match(_tileMap.get_cell(grid_position.x, grid_position.y)):
+		PIT_ID:
+			fall()
+		DRY_PATCH_ID:
+			_timer.stop()
+			direction = Vector2()
+			set_physics_process(true)
 
 func _handle_movement():
 	_update_grid_position()
@@ -80,6 +78,10 @@ func _is_inside_wall()->bool:
 	match(object_type):
 		Types.PUSH_BLOCK:
 			result = true
+		Types.SWITCH:
+			result = true
+		Types.CLOSED_DOOR:
+			result = true
 	match(_tileMap.get_cell(grid_position.x, grid_position.y)):
 		WALL_ID:
 			result = true
@@ -90,6 +92,10 @@ func _can_move_to_grid_pos(grid_pos:Vector2)->bool:
 	var object_type = _rayCast.get_chess_piece_object_type(Vector2() + (direction * cell_size))
 	match(object_type):
 		Types.PUSH_BLOCK:
+			result = false;
+		Types.SWITCH:
+			result = false;
+		Types.CLOSED_DOOR:
 			result = false;
 	match(_tileMap.get_cell(grid_pos.x, grid_pos.y)):
 		WALL_ID:

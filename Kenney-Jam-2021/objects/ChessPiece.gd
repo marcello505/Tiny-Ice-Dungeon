@@ -5,7 +5,10 @@ class_name ChessPiece, "res://imports/editor_icons/ChessPiece-icon.png"
 enum Types {
 	PLAYER,
 	GOAL,
-	PUSH_BLOCK
+	PUSH_BLOCK,
+	SWITCH,
+	CLOSED_DOOR,
+	OPEN_DOOR
 }
 
 #CONSTS
