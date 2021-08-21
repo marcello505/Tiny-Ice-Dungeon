@@ -9,7 +9,7 @@ enum Types {
 
 
 #ONREADY VARS
-onready var _tileMap : TileMap = $".."
+onready var _tileMap : RotatingTileMap = $".."
 onready var _collision : CollisionShape2D
 
 #EXPORTED VARS

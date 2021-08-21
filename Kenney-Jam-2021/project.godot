@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://objects/Player.gd"
+}, {
+"base": "TileMap",
+"class": "RotatingTileMap",
+"language": "GDScript",
+"path": "res://objects/TileMap.gd"
 } ]
 _global_script_class_icons={
 "ChessPiece": "res://imports/editor_icons/ChessPiece-icon.png",
 "Goal": "",
-"Player": ""
+"Player": "",
+"RotatingTileMap": ""
 }
 
 [application]

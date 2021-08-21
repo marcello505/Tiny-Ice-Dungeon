@@ -2,8 +2,8 @@ extends ChessPiece
 class_name Player
 
 #CONSTS
+const PIT_ID = -1
 const WALL_ID = 0
-const VICTORY_ID = 1
 
 #ONREADY VARS
 onready var _timer : Timer = $MovementTimer
@@ -30,7 +30,7 @@ func _handle_current_tile():
 					print("You Win!")
 	else:
 		match(_tileMap.get_cell(grid_position.x, grid_position.y)):
-			_:
+			PIT_ID:
 				pass
 
 func _handle_movement():
@@ -61,14 +61,19 @@ func _get_standing_tile()->int:
 
 func _get_input_direction()->Vector2:
 	var direction = Vector2()
-	if Input.is_action_just_pressed("ui_up"):
-		direction.y -= 1
-	elif Input.is_action_just_pressed("ui_down"):
-		direction.y += 1
-	elif Input.is_action_just_pressed("ui_left"):
-		direction.x -= 1
-	elif Input.is_action_just_pressed("ui_right"):
-		direction.x += 1
+	if (Input.is_action_just_pressed("rotate_clockwise")):
+		_tileMap.rotate_clockwise()
+	elif(Input.is_action_just_pressed("rotate_counter_clockwise")):
+		_tileMap.rotate_counter_clockwise()
+	else:
+		if Input.is_action_just_pressed("ui_up"):
+			direction.y -= 1
+		elif Input.is_action_just_pressed("ui_down"):
+			direction.y += 1
+		elif Input.is_action_just_pressed("ui_left"):
+			direction.x -= 1
+		elif Input.is_action_just_pressed("ui_right"):
+			direction.x += 1
 	return direction.normalized()
 
 

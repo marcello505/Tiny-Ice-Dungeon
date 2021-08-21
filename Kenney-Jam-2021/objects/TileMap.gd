@@ -1,4 +1,6 @@
 extends TileMap
+class_name RotatingTileMap
+
 
 #CONSTS
 const KEY_ID = "id"
@@ -9,13 +11,6 @@ func _process(_delta):
 	#Center display
 	var rect := get_viewport_rect()
 	position = rect.size * 0.5
-	
-
-func _physics_process(delta):
-	if(Input.is_action_just_pressed("rotate_clockwise")):
-		rotate_clockwise()
-	if(Input.is_action_just_pressed("rotate_counter_clockwise")):
-		rotate_counter_clockwise()
 
 func rotate_clockwise():
 	var array = _gather_info_cells()
