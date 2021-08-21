@@ -1,35 +1,52 @@
 extends TileMap
+class_name RotatingTileMap
+
+signal player_died
+signal goal_reached
 
 #CONSTS
 const KEY_ID = "id"
 const KEY_COORD = "coord"
-const KEY_AUTOTILE_COORD = "autotile_coord"
+const KEY_AUTOTILE_COORD = "autotile_coord"#
+
+#ONREADY VARS
+onready var player = $Player
+
+#GLOBAL VARS
+var default_cells : Array
+
+func _ready():
+	default_cells = _gather_info_cells()
 
 func _process(_delta):
 	#Center display
 	var rect := get_viewport_rect()
 	position = rect.size * 0.5
-	
 
-func _physics_process(delta):
-	if(Input.is_action_just_pressed("rotate_clockwise")):
-		rotate_clockwise()
-	if(Input.is_action_just_pressed("rotate_counter_clockwise")):
-		rotate_counter_clockwise()
+func _input(event):
+	if(event.is_action_pressed("reset")):
+		reset()
 
+func reset():
+	_set_array_cells(default_cells)
+	get_tree().call_group("reset", "reset")
+
+#ROTATION METHODS
 func rotate_clockwise():
 	var array = _gather_info_cells()
 	for item in array:
-		item[KEY_COORD] = _calculate_clockwise_grid_rotation(item[KEY_COORD])
+		item[KEY_COORD] = calculate_clockwise_grid_rotation(item[KEY_COORD])
 	_set_array_cells(array)
+	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME, "rotate", "rotate_clockwise")
 
 func rotate_counter_clockwise():
 	var array = _gather_info_cells()
 	for item in array:
-		item[KEY_COORD] = _calculate_counter_clockwise_grid_rotation(item[KEY_COORD])
+		item[KEY_COORD] = calculate_counter_clockwise_grid_rotation(item[KEY_COORD])
 	_set_array_cells(array)
+	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME, "rotate", "rotate_counter_clockwise")
 
-func _calculate_clockwise_grid_rotation(coord : Vector2)->Vector2:
+func calculate_clockwise_grid_rotation(coord : Vector2)->Vector2:
 	var result := Vector2()
 	if(coord.x >= 0 && coord.y >= 0):
 		#Bottom Right
@@ -49,7 +66,7 @@ func _calculate_clockwise_grid_rotation(coord : Vector2)->Vector2:
 		result.y = coord.x
 	return result
 
-func _calculate_counter_clockwise_grid_rotation(coord : Vector2)->Vector2:
+func calculate_counter_clockwise_grid_rotation(coord : Vector2)->Vector2:
 	var result := Vector2()
 	if(coord.x >= 0 && coord.y >= 0):
 		#Bottom Right
