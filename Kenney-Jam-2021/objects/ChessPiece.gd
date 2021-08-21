@@ -7,6 +7,8 @@ enum Types {
 	GOAL
 }
 
+#CONSTS
+const GROUP_RESET = "reset"
 
 #ONREADY VARS
 onready var _tileMap : RotatingTileMap = $".."
@@ -16,6 +18,7 @@ onready var _collision : CollisionShape2D
 export(NodePath) var COLLISIONSHAPE2D_NODE = NodePath("CollisionShape2D")
 
 #GLOBAL VARS
+var starting_position : Vector2
 var piece_type := -1
 var cell_size : Vector2
 var grid_position : Vector2
@@ -23,6 +26,8 @@ var grid_position : Vector2
 func _ready():
 	cell_size = _tileMap.cell_size
 	_center_position_on_grid()
+	starting_position = position
+	add_to_group(GROUP_RESET)
 	
 	#Automatically resize collisonshape
 	_collision = get_node(COLLISIONSHAPE2D_NODE)
@@ -37,3 +42,7 @@ func _update_grid_position():
 func _center_position_on_grid():
 	position = _tileMap.map_to_world(_tileMap.world_to_map(position))
 	position += cell_size * 0.5
+
+func reset():
+	position = starting_position
+	_update_grid_position()

@@ -80,3 +80,10 @@ func _get_input_direction()->Vector2:
 func _on_MovementTimer_timeout():
 	_handle_movement()
 	_handle_current_tile()
+
+func reset():
+	.reset()
+	direction = Vector2()
+	_timer.stop()
+	set_physics_process(true)
+	

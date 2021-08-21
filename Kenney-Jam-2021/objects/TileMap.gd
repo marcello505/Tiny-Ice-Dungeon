@@ -7,11 +7,26 @@ const KEY_ID = "id"
 const KEY_COORD = "coord"
 const KEY_AUTOTILE_COORD = "autotile_coord"
 
+#GLOBAL VARS
+var default_cells : Array
+
+func _ready():
+	default_cells = _gather_info_cells()
+
 func _process(_delta):
 	#Center display
 	var rect := get_viewport_rect()
 	position = rect.size * 0.5
 
+func _input(event):
+	if(event.is_action_pressed("reset")):
+		reset()
+
+func reset():
+	_set_array_cells(default_cells)
+	get_tree().call_group("reset", "reset")
+
+#ROTATION METHODS
 func rotate_clockwise():
 	var array = _gather_info_cells()
 	for item in array:
