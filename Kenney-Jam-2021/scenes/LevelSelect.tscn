@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://imports/Kenney-Jam-Logo.png" type="Texture" id=1]
+[ext_resource path="res://objects/UI/MenuControl.gd" type="Script" id=2]
 [ext_resource path="res://objects/UI/tempBtn.tscn" type="PackedScene" id=4]
 
 [node name="Control" type="Control"]
@@ -9,6 +10,7 @@ anchor_bottom = 1.0
 margin_right = -336.0
 margin_bottom = -336.0
 rect_min_size = Vector2( 336, 336 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,9 +28,9 @@ __meta__ = {
 }
 
 [node name="LogoContainer" type="HBoxContainer" parent="MenuContainer"]
-margin_top = 21.0
+margin_top = 3.0
 margin_right = 336.0
-margin_bottom = 105.0
+margin_bottom = 87.0
 alignment = 1
 
 [node name="KenneyLogo" type="TextureRect" parent="MenuContainer/LogoContainer"]
@@ -46,15 +48,15 @@ __meta__ = {
 }
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="MenuContainer"]
-margin_top = 155.0
+margin_top = 137.0
 margin_right = 336.0
-margin_bottom = 315.0
+margin_bottom = 332.0
 alignment = 1
 
 [node name="HAlign" type="VBoxContainer" parent="MenuContainer/ButtonsContainer"]
 margin_left = 139.0
 margin_right = 197.0
-margin_bottom = 160.0
+margin_bottom = 195.0
 custom_constants/separation = 15
 
 [node name="Lv1Btn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
@@ -92,11 +94,20 @@ margin_bottom = 125.0
 text = "Level 4"
 scene = "res://levels/Level_4.tscn"
 
-[node name="ReturnBtn5" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+[node name="Lv5Btn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 140.0
 margin_right = 58.0
 margin_bottom = 160.0
+text = "Level 5"
+scene = "res://levels/Level_5.tscn"
+
+[node name="ReturnBtn5" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 175.0
+margin_right = 58.0
+margin_bottom = 195.0
 text = "Back"
 scene = "res://scenes/MainMenu.tscn"
