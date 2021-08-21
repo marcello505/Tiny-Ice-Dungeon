@@ -12,4 +12,4 @@
 position = Vector2( 136.862, 135.918 )
 
 [node name="Goal" parent="TileMap" instance=ExtResource( 2 )]
-position = Vector2( -132.614, -134.502 )
+position = Vector2( -119.179, -121.067 )
