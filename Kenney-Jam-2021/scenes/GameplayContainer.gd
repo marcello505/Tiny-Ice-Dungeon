@@ -1,10 +1,14 @@
 extends Node
 class_name GameplayContainer
 
+#CONSTS
+const MAIN_MENU_PATH = "res://scenes/MainMenu.tscn"
+
 #ONREADY VARS
 onready var _levelLayer = $LevelLayer
 onready var _deathScreen : Control = $HudLayer/DeathScreen
 onready var _animationPlayer : AnimationPlayer = $AnimationPlayer
+onready var _pauseScreen : Control = $HudLayer/PauseMenu
 
 func _ready():
 	_load_level()
@@ -58,3 +62,20 @@ func _player_died():
 
 func _reset():
 	_deathScreen.visible = false
+
+func toggle_pause():
+	if(_pauseScreen.visible):
+		_pauseScreen.visible = false
+		get_tree().paused = false
+	else:
+		_pauseScreen.visible = true
+		get_tree().paused = true
+
+func _input(event):
+	if(event.is_action_pressed("pause")):
+		toggle_pause()
+
+
+func _on_BtnQuit_pressed():
+	get_tree().paused = false
+	get_tree().change_scene(MAIN_MENU_PATH)

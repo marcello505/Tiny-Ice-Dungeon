@@ -55,9 +55,11 @@ atlas = ExtResource( 1 )
 region = Rect2( 656, 304, 16, 16 )
 
 [node name="GameplayContainer" type="Node"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="LevelLayer" type="CenterContainer" parent="."]
+pause_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 168, 168 )
@@ -269,6 +271,40 @@ margin_right = 256.0
 margin_bottom = 16.0
 texture = SubResource( 12 )
 
+[node name="PauseMenu" type="PanelContainer" parent="HudLayer"]
+visible = false
+margin_left = 161.0
+margin_top = 161.0
+margin_right = 175.0
+margin_bottom = 175.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/PauseMenu"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 113.0
+margin_bottom = 69.0
+
+[node name="Label" type="Label" parent="HudLayer/PauseMenu/VBoxContainer"]
+margin_right = 106.0
+margin_bottom = 14.0
+text = "PAUSED"
+align = 1
+
+[node name="BtnResume" type="Button" parent="HudLayer/PauseMenu/VBoxContainer"]
+margin_top = 18.0
+margin_right = 106.0
+margin_bottom = 38.0
+text = "Resume Game"
+
+[node name="BtnQuit" type="Button" parent="HudLayer/PauseMenu/VBoxContainer"]
+margin_top = 42.0
+margin_right = 106.0
+margin_bottom = 62.0
+text = "Quit Game"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Rotate_Clockwise = ExtResource( 5 )
 anims/Rotate_Counter_Clockwise = ExtResource( 4 )
+
+[connection signal="pressed" from="HudLayer/PauseMenu/VBoxContainer/BtnResume" to="." method="toggle_pause"]
+[connection signal="pressed" from="HudLayer/PauseMenu/VBoxContainer/BtnQuit" to="." method="_on_BtnQuit_pressed"]
