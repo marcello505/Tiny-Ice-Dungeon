@@ -9,6 +9,8 @@ onready var _levelLayer = $LevelLayer
 onready var _deathScreen : Control = $HudLayer/DeathScreen
 onready var _animationPlayer : AnimationPlayer = $AnimationPlayer
 onready var _pauseScreen : Control = $HudLayer/PauseMenu
+onready var _levelChangeDelay : Timer = $LevelChangeDelay
+onready var _audioGoalReached : AudioStreamPlayer = $AudioGoalReached
 
 func _ready():
 	_load_level()
@@ -17,6 +19,10 @@ func _on_level_complete():
 	var level_to_load : int = ProjectSettings.get("tinyicedungeon/level_select/current_level") + 1
 	ProjectSettings.set("tinyicedungeon/level_select/current_level", level_to_load)
 	_load_level()
+
+func _next_level():
+	_audioGoalReached.play()
+	_levelChangeDelay.start()
 
 func _load_level():
 	#Load level
@@ -42,7 +48,7 @@ func _look_for_signals_on_node(node : Node)->bool:
 	var result := false;
 	if(node.has_signal("goal_reached") && node.has_signal("player_died")):
 		var rot_tile_map : RotatingTileMap = node
-		rot_tile_map.connect("goal_reached", self, "_on_level_complete")
+		rot_tile_map.connect("goal_reached", self, "_next_level")
 		rot_tile_map.connect("rotate_clockwise", self, "anim_rotate_clockwise")
 		rot_tile_map.connect("rotate_counter_clockwise", self, "anim_rotate_counter_clockwise")
 		rot_tile_map.connect("player_died", self, "_player_died")
