@@ -12,6 +12,8 @@ onready var _rayCast : ChessPieceRayCast = $RayCast2D
 onready var _audioFall : AudioStreamPlayer = $AudioFall
 onready var _audioBump : AudioStreamPlayer = $AudioBump
 onready var _audioMove : AudioStreamPlayer = $AudioMove
+onready var _animPlayer : AnimationPlayer = $AnimationPlayer
+onready var _sprite : Sprite = $Sprite
 
 #GLOBAL VARS
 var direction := Vector2() #Current moving direction
@@ -143,14 +145,19 @@ func reset():
 	direction = Vector2()
 	_timer.stop()
 	set_physics_process(true)
+	_animPlayer.stop(true)
+	_sprite.visible = true;
+	_sprite.rotation = 0
+	_sprite.scale = Vector2(1,1)
+	
 	
 #AAAAAAAAH I'M FALLING
 func fall():
-	visible = false
 	_timer.stop()
 	set_physics_process(false)
 	_tileMap.player_died()
 	_play_audio(_audioFall)
+	_animPlayer.play("Fall")
 
 func _play_audio(audio_player : AudioStreamPlayer):
 	if(audio_player != null):
