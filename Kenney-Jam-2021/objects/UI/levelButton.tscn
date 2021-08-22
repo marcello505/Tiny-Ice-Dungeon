@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://objects/UI/levelButton.gd" type="Script" id=1]
+[ext_resource path="res://objects/UI/buttonFont.tres" type="DynamicFont" id=2]
 
 [node name="StartBtn" type="Button"]
-margin_right = 89.0
-margin_bottom = 20.0
+anchor_right = 0.3125
+anchor_bottom = 0.0595238
+margin_right = -16.0
+custom_fonts/font = ExtResource( 2 )
 text = "Start Game"
+flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
