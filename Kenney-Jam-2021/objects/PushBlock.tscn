@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/PushBlock.gd" type="Script" id=1]
 [ext_resource path="res://imports/1bitpack_kenney_1.1/Tilesheet/colored_transparent_packed.png" type="Texture" id=2]
 [ext_resource path="res://objects/ChessPieceRayCast.gd" type="Script" id=3]
+[ext_resource path="res://imports/audio/SFX/move.ogg" type="AudioStream" id=4]
+[ext_resource path="res://imports/audio/SFX/bump.ogg" type="AudioStream" id=5]
+[ext_resource path="res://imports/audio/SFX/fall.ogg" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -68,12 +71,15 @@ collide_with_bodies = false
 script = ExtResource( 3 )
 
 [node name="AudioFall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 bus = "SFX"
 
 [node name="AudioBump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 bus = "SFX"
 
 [node name="AudioMove" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 bus = "SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/goal.ogg-1d22bf593e67301dc5f541971fa0411a.oggstr"
+
+[deps]
+
+source_file="res://imports/audio/SFX/goal.ogg"
+dest_files=[ "res://.import/goal.ogg-1d22bf593e67301dc5f541971fa0411a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
