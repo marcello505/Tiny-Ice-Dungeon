@@ -1,5 +1,7 @@
 extends Player
 
+var can_interact := true
+
 func _ready():
 	piece_type = Types.PUSH_BLOCK
 	handle_inputs = false
@@ -8,15 +10,25 @@ func _ready():
 	add_to_group(GROUP_MOVEABLE)
 
 func interact():
+	if(!can_interact):
+		return false
 	var player : Player = _tileMap.player
 	direction = player.direction
 	_timer.start()
 	return true
 
+func reset():
+	.reset()
+	piece_type = Types.PUSH_BLOCK
+	can_interact = true
+
 func fall():
 	_timer.stop()
 	set_physics_process(false)
-	visible = false
+	_play_audio(_audioFall)
+	_animPlayer.play("Fall")
+	piece_type = -1
+	can_interact = false
 
 func is_moving()->bool:
 	return !_timer.is_stopped()

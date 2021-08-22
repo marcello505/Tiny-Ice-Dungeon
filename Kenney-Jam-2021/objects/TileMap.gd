@@ -5,6 +5,7 @@ signal player_died
 signal goal_reached
 signal rotate_clockwise
 signal rotate_counter_clockwise
+signal reset
 
 #CONSTS
 const KEY_ID = "id"
@@ -32,6 +33,7 @@ func _input(event):
 func reset():
 	_set_array_cells(default_cells)
 	get_tree().call_group("reset", "reset")
+	emit_signal("reset")
 
 func can_player_move()->bool:
 	var result = true;

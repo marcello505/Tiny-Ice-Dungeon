@@ -6,6 +6,8 @@ export(bool) var door_starts_open = false
 
 #ONREADY VARS
 onready var _sprite : Sprite = $Sprite
+onready var _audioOpen : AudioStreamPlayer = $AudioOpen
+onready var _audioClose : AudioStreamPlayer = $AudioClose
 
 func _ready():
 	_default_door()
@@ -23,9 +25,11 @@ func toggle_door():
 	if(piece_type == Types.CLOSED_DOOR):
 		piece_type = Types.OPEN_DOOR
 		_sprite.frame = 1
+		_audioOpen.play()
 	else:
 		piece_type = Types.CLOSED_DOOR
 		_sprite.frame = 0
+		_audioClose.play()
 
 func reset():
 	.reset()
