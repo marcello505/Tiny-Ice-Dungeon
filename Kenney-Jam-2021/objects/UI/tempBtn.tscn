@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/UI/tempBtn.gd" type="Script" id=1]
+[ext_resource path="res://objects/UI/buttonFont.tres" type="DynamicFont" id=2]
+
+[node name="tempBtn" type="Button"]
+anchor_right = 0.217262
+anchor_bottom = 0.0595238
+margin_right = -73.0001
+margin_bottom = -20.0
+custom_fonts/font = ExtResource( 2 )
+text = "Sample"
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="." to="." method="_btn_Pressed"]

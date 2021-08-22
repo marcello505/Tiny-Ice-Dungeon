@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://objects/UI/buttonFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://objects/UI/MenuControl.gd" type="Script" id=2]
+[ext_resource path="res://objects/UI/levelButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/UI/tempBtn.tscn" type="PackedScene" id=4]
+
+[node name="Control" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 336, 336 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+margin_right = 336.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 336, 336 )
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogoContainer" type="HBoxContainer" parent="MenuContainer"]
+margin_top = 108.0
+margin_right = 336.0
+margin_bottom = 122.0
+alignment = 1
+
+[node name="SceneTitle" type="Label" parent="MenuContainer/LogoContainer"]
+margin_left = 113.0
+margin_right = 222.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level Select"
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="MenuContainer"]
+margin_top = 172.0
+margin_right = 336.0
+margin_bottom = 227.0
+alignment = 1
+
+[node name="HAlign" type="GridContainer" parent="MenuContainer/ButtonsContainer"]
+margin_left = 14.0
+margin_right = 322.0
+margin_bottom = 55.0
+custom_constants/vseparation = 15
+columns = 4
+
+[node name="StartBtn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 74.0
+margin_bottom = 20.0
+text = "Level 1"
+
+[node name="StartBtn2" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_right = 152.0
+margin_bottom = 20.0
+text = "Level 2"
+level_select = 1
+
+[node name="StartBtn3" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 156.0
+margin_right = 230.0
+margin_bottom = 20.0
+text = "Level 3"
+level_select = 2
+
+[node name="StartBtn4" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 234.0
+margin_right = 308.0
+margin_bottom = 20.0
+text = "Level 4"
+level_select = 3
+
+[node name="StartBtn5" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 35.0
+margin_right = 74.0
+margin_bottom = 55.0
+text = "Level 5"
+level_select = 4
+
+[node name="StartBtn6" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_top = 35.0
+margin_right = 152.0
+margin_bottom = 55.0
+text = "Level 6"
+level_select = 5
+
+[node name="StartBtn7" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 156.0
+margin_top = 35.0
+margin_right = 230.0
+margin_bottom = 55.0
+text = "Level 7"
+level_select = 6
+
+[node name="ReturnBtn5" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 234.0
+margin_top = 35.0
+margin_right = 308.0
+margin_bottom = 55.0
+text = "Back"
+scene = "res://scenes/MainMenu.tscn"
