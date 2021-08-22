@@ -45,7 +45,7 @@ func _look_for_signals_on_node(node : Node)->bool:
 	return result
 
 func anim_rotate_clockwise():
-	_animationPlayer.play("Rotate_Clockwise")
+	_animationPlayer.play("Rotate_Counter_Clockwise")
 
 func anim_rotate_counter_clockwise():
-	_animationPlayer.play("Rotate_Counter_Clockwise")
+	_animationPlayer.play("Rotate_Clockwise")
