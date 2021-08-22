@@ -9,50 +9,62 @@
 [ext_resource path="res://imports/audio/Yi Nantiro - Blue Lantern.ogg" type="AudioStream" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 736, 304, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=2]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 576, 304, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=3]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 672, 304, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 608, 288, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 688, 288, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 624, 288, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 592, 304, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=9]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 624, 304, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 640, 304, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 704, 208, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=12]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 656, 304, 16, 16 )
 
