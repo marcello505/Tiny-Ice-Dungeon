@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/UI/buttonFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://objects/UI/MenuControl.gd" type="Script" id=2]
+[ext_resource path="res://objects/UI/QuitBtn.gd" type="Script" id=3]
+[ext_resource path="res://objects/UI/tempBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/UI/infoFont.tres" type="DynamicFont" id=5]
+
+[node name="Control" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 336, 336 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+margin_right = 336.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 336, 336 )
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogoContainer" type="HBoxContainer" parent="MenuContainer"]
+margin_top = 95.0
+margin_right = 336.0
+margin_bottom = 136.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/LogoContainer"]
+margin_left = 82.0
+margin_right = 253.0
+margin_bottom = 41.0
+
+[node name="SceneTitle" type="Label" parent="MenuContainer/LogoContainer/VBoxContainer"]
+margin_right = 171.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "congratulations"
+align = 1
+
+[node name="Label" type="Label" parent="MenuContainer/LogoContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 171.0
+margin_bottom = 41.0
+custom_fonts/font = ExtResource( 5 )
+text = "You made it to the end
+Thanks for playing our game"
+align = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="MenuContainer"]
+margin_top = 186.0
+margin_right = 336.0
+margin_bottom = 241.0
+alignment = 1
+
+[node name="HAlign" type="GridContainer" parent="MenuContainer/ButtonsContainer"]
+margin_left = 120.0
+margin_right = 216.0
+margin_bottom = 55.0
+custom_constants/vseparation = 15
+
+[node name="ReturnBtn5" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 96.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( -612.378, -98.7926 )
+text = "Main Menu"
+scene = "res://scenes/MainMenu.tscn"
+
+[node name="QuitBtn" type="Button" parent="MenuContainer/ButtonsContainer/HAlign"]
+margin_top = 35.0
+margin_right = 96.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+flat = true
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="MenuContainer/ButtonsContainer/HAlign/QuitBtn" to="MenuContainer/ButtonsContainer/HAlign/QuitBtn" method="_btn_Pressed"]
