@@ -3,6 +3,7 @@ class_name GameplayContainer
 
 #ONREADY VARS
 onready var _levelLayer = $LevelLayer
+onready var _deathScreen : Control = $HudLayer/DeathScreen
 onready var _animationPlayer : AnimationPlayer = $AnimationPlayer
 
 func _ready():
@@ -40,6 +41,8 @@ func _look_for_signals_on_node(node : Node)->bool:
 		rot_tile_map.connect("goal_reached", self, "_on_level_complete")
 		rot_tile_map.connect("rotate_clockwise", self, "anim_rotate_clockwise")
 		rot_tile_map.connect("rotate_counter_clockwise", self, "anim_rotate_counter_clockwise")
+		rot_tile_map.connect("player_died", self, "_player_died")
+		rot_tile_map.connect("reset", self, "_reset")
 		result = true
 		
 	return result
@@ -49,3 +52,9 @@ func anim_rotate_clockwise():
 
 func anim_rotate_counter_clockwise():
 	_animationPlayer.play("Rotate_Clockwise")
+
+func _player_died():
+	_deathScreen.visible = true
+
+func _reset():
+	_deathScreen.visible = false
