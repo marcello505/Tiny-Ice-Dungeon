@@ -1,52 +1,52 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://objects/UI/tempBtn.tscn" type="PackedScene" id=1]
-[ext_resource path="res://imports/Kenney-Jam-Logo.png" type="Texture" id=2]
+[ext_resource path="res://objects/UI/buttonFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://imports/1bitpack_kenney_1.1/Tilesheet/monochrome_transparent.png" type="Texture" id=3]
 [ext_resource path="res://objects/UI/MenuControl.gd" type="Script" id=4]
 [ext_resource path="res://objects/UI/infoFont.tres" type="DynamicFont" id=5]
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 476.633, 356.943, 14.7789, 15.807 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 747.5, 170.5, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 510, 357, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 782, 170.258, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 527.102, 357, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 798.75, 170.258, 16, 16.064 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 492.5, 357, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 764.75, 170.258, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 748, 221, 16, 16 )
@@ -64,36 +64,29 @@ __meta__ = {
 margin_right = 336.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 336, 336 )
-custom_constants/separation = 25
+custom_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LogoContainer" type="HBoxContainer" parent="MenuContainer"]
-margin_top = 8.0
+margin_top = 48.0
 margin_right = 336.0
-margin_bottom = 92.0
+margin_bottom = 62.0
 alignment = 1
 
-[node name="KenneyLogo" type="TextureRect" parent="MenuContainer/LogoContainer"]
-margin_left = 84.0
-margin_right = 252.0
-margin_bottom = 84.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 168, 84 )
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="SceneTitle" type="Label" parent="MenuContainer/LogoContainer"]
+margin_left = 106.0
+margin_right = 230.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 2 )
+text = "Controls Menu"
 
 [node name="ControlsContainer" type="HBoxContainer" parent="MenuContainer"]
-margin_top = 117.0
+margin_top = 82.0
 margin_right = 336.0
-margin_bottom = 283.0
+margin_bottom = 248.0
 alignment = 1
 __meta__ = {
 "_edit_group_": true
@@ -142,7 +135,7 @@ margin_top = 14.0
 margin_right = 113.0
 margin_bottom = 30.0
 size_flags_horizontal = 4
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 
 [node name="DPadUp" type="TextureRect" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_left = 155.0
@@ -150,7 +143,7 @@ margin_top = 14.0
 margin_right = 171.0
 margin_bottom = 30.0
 size_flags_horizontal = 4
-texture = SubResource( 7 )
+texture = SubResource( 2 )
 
 [node name="MoveDown" type="Label" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_top = 37.0
@@ -166,7 +159,7 @@ margin_top = 34.0
 margin_right = 114.0
 margin_bottom = 50.0
 size_flags_horizontal = 4
-texture = SubResource( 8 )
+texture = SubResource( 3 )
 
 [node name="DPadDown" type="TextureRect" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_left = 155.0
@@ -174,7 +167,7 @@ margin_top = 34.0
 margin_right = 171.0
 margin_bottom = 50.0
 size_flags_horizontal = 4
-texture = SubResource( 3 )
+texture = SubResource( 4 )
 
 [node name="MoveLeft" type="Label" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_top = 57.0
@@ -190,7 +183,7 @@ margin_top = 54.0
 margin_right = 114.0
 margin_bottom = 70.0
 size_flags_horizontal = 4
-texture = SubResource( 9 )
+texture = SubResource( 5 )
 
 [node name="DPadLeft" type="TextureRect" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_left = 155.0
@@ -198,7 +191,7 @@ margin_top = 54.0
 margin_right = 171.0
 margin_bottom = 70.0
 size_flags_horizontal = 4
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 
 [node name="MoveRight" type="Label" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_top = 77.0
@@ -214,7 +207,7 @@ margin_top = 74.0
 margin_right = 114.0
 margin_bottom = 90.0
 size_flags_horizontal = 4
-texture = SubResource( 10 )
+texture = SubResource( 7 )
 
 [node name="DPadRight" type="TextureRect" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_left = 155.0
@@ -222,7 +215,7 @@ margin_top = 74.0
 margin_right = 171.0
 margin_bottom = 90.0
 size_flags_horizontal = 4
-texture = SubResource( 5 )
+texture = SubResource( 8 )
 
 [node name="RotateLeft" type="Label" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_top = 94.0
@@ -299,7 +292,7 @@ margin_top = 122.0
 margin_right = 171.0
 margin_bottom = 138.0
 size_flags_horizontal = 4
-texture = SubResource( 6 )
+texture = SubResource( 9 )
 
 [node name="Fullscreen" type="Label" parent="MenuContainer/ControlsContainer/GridContainer"]
 margin_top = 142.0
@@ -354,16 +347,16 @@ text = "Start"
 align = 1
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="MenuContainer"]
-margin_top = 308.0
+margin_top = 268.0
 margin_right = 336.0
-margin_bottom = 328.0
+margin_bottom = 288.0
 alignment = 1
 
 [node name="HAlign" type="VBoxContainer" parent="MenuContainer/ButtonsContainer"]
 margin_left = 142.0
 margin_right = 194.0
 margin_bottom = 20.0
-custom_constants/separation = 15
+custom_constants/separation = 5
 
 [node name="ReturnBtn" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 1 )]
 anchor_right = 0.0
