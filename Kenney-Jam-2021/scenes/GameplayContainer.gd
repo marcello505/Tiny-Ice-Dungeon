@@ -4,6 +4,9 @@ class_name GameplayContainer
 #CONSTS
 const MAIN_MENU_PATH = "res://scenes/MainMenu.tscn"
 
+#EXPORT VARS
+export(NodePath) var FIRST_BUTTON_PATH = NodePath("HudLayer/PauseMenu/VBoxContainer/BtnResume")
+
 #ONREADY VARS
 onready var _levelLayer = $LevelLayer
 onready var _deathScreen : Control = $HudLayer/DeathScreen
@@ -81,6 +84,7 @@ func toggle_pause():
 	else:
 		_pauseScreen.visible = true
 		get_tree().paused = true
+		get_node(FIRST_BUTTON_PATH).grab_focus()
 
 func _input(event):
 	if(event.is_action_pressed("pause")):
