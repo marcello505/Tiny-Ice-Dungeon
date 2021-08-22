@@ -64,7 +64,7 @@ _global_script_class_icons={
 
 config/name="Tiny Ice Dungeon"
 run/main_scene="res://scenes/MainMenu.tscn"
-boot_splash/image="res://imports/Kenney-Jam-Logo.png"
+boot_splash/image="res://imports/Tiny-Ice-Dungeon-Cover.png"
 config/icon="res://icon.png"
 
 [autoload]
