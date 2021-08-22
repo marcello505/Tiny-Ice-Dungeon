@@ -327,8 +327,10 @@ wait_time = 0.5
 one_shot = true
 
 [node name="AudioGoalReached" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [node name="AudioRotate" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 

@@ -19,5 +19,7 @@ region_rect = Rect2( 16, 144, 32, 16 )
 shape = SubResource( 1 )
 
 [node name="AudioOpen" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [node name="AudioClose" type="AudioStreamPlayer" parent="."]
+bus = "SFX"

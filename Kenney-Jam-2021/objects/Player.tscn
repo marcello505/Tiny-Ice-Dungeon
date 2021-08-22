@@ -73,10 +73,13 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="AudioFall" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [node name="AudioBump" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [node name="AudioMove" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fall = SubResource( 2 )
