@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fall.ogg-93198f3beb6877201272efe7a461cca5.oggstr"
+
+[deps]
+
+source_file="res://imports/audio/SFX/fall.ogg"
+dest_files=[ "res://.import/fall.ogg-93198f3beb6877201272efe7a461cca5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
