@@ -330,6 +330,8 @@ one_shot = true
 
 [node name="AudioRotate" type="AudioStreamPlayer" parent="."]
 
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="HudLayer/PauseMenu/VBoxContainer/BtnResume" to="." method="toggle_pause"]
 [connection signal="value_changed" from="HudLayer/PauseMenu/VBoxContainer/VolumeSlider" to="HudLayer/PauseMenu/VBoxContainer/VolumeSlider" method="_on_VolumeSlider_value_changed"]
 [connection signal="pressed" from="HudLayer/PauseMenu/VBoxContainer/BtnQuit" to="." method="_on_BtnQuit_pressed"]
