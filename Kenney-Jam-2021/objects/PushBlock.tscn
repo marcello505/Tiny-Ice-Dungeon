@@ -28,4 +28,10 @@ collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource( 3 )
 
+[node name="AudioFall" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioBump" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioMove" type="AudioStreamPlayer" parent="."]
+
 [connection signal="timeout" from="MovementTimer" to="." method="_on_MovementTimer_timeout"]

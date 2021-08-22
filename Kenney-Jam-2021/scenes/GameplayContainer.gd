@@ -11,6 +11,7 @@ onready var _animationPlayer : AnimationPlayer = $AnimationPlayer
 onready var _pauseScreen : Control = $HudLayer/PauseMenu
 onready var _levelChangeDelay : Timer = $LevelChangeDelay
 onready var _audioGoalReached : AudioStreamPlayer = $AudioGoalReached
+onready var _audioRotate : AudioStreamPlayer = $AudioRotate
 
 func _ready():
 	_load_level()
@@ -58,10 +59,14 @@ func _look_for_signals_on_node(node : Node)->bool:
 	return result
 
 func anim_rotate_clockwise():
+	_animationPlayer.stop(true)
 	_animationPlayer.play("Rotate_Counter_Clockwise")
+	_audioRotate.play()
 
 func anim_rotate_counter_clockwise():
+	_animationPlayer.stop(true)
 	_animationPlayer.play("Rotate_Clockwise")
+	_audioRotate.play()
 
 func _player_died():
 	_deathScreen.visible = true

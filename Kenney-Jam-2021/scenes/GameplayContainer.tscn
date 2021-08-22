@@ -63,7 +63,6 @@ script = ExtResource( 2 )
 pause_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_rotation = 45.0
 rect_pivot_offset = Vector2( 168, 168 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -329,7 +328,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="AudioGoalReached" type="AudioStreamPlayer" parent="."]
-autoplay = true
+
+[node name="AudioRotate" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="HudLayer/PauseMenu/VBoxContainer/BtnResume" to="." method="toggle_pause"]
 [connection signal="value_changed" from="HudLayer/PauseMenu/VBoxContainer/VolumeSlider" to="HudLayer/PauseMenu/VBoxContainer/VolumeSlider" method="_on_VolumeSlider_value_changed"]

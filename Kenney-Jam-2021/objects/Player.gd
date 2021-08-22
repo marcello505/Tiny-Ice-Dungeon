@@ -9,6 +9,9 @@ const DRY_PATCH_ID = 2
 #ONREADY VARS
 onready var _timer : Timer = $MovementTimer
 onready var _rayCast : ChessPieceRayCast = $RayCast2D
+onready var _audioFall : AudioStreamPlayer = $AudioFall
+onready var _audioBump : AudioStreamPlayer = $AudioBump
+onready var _audioMove : AudioStreamPlayer = $AudioMove
 
 #GLOBAL VARS
 var direction := Vector2() #Current moving direction
@@ -57,6 +60,7 @@ func _handle_movement():
 		return
 	if(_is_inside_wall()):
 		#Don't move if you're stuck in a wall lmao
+		_play_audio(_audioBump)
 		print("You're stuck!")
 		return
 	
@@ -66,7 +70,9 @@ func _handle_movement():
 		_center_position_on_grid()
 		set_physics_process(false)
 		_timer.start()
+		_play_audio(_audioMove)
 	else:
+		_play_audio(_audioBump)
 		direction = Vector2()
 		_timer.stop()
 		set_physics_process(true)
@@ -144,3 +150,9 @@ func fall():
 	_timer.stop()
 	set_physics_process(false)
 	_tileMap.player_died()
+	_play_audio(_audioFall)
+
+func _play_audio(audio_player : AudioStreamPlayer):
+	if(audio_player != null):
+		audio_player.play()
+	
