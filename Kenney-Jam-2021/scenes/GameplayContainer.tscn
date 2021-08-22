@@ -333,6 +333,7 @@ bus = "SFX"
 bus = "SFX"
 
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 
 [connection signal="pressed" from="HudLayer/PauseMenu/VBoxContainer/BtnResume" to="." method="toggle_pause"]
 [connection signal="value_changed" from="HudLayer/PauseMenu/VBoxContainer/VolumeSlider" to="HudLayer/PauseMenu/VBoxContainer/VolumeSlider" method="_on_VolumeSlider_value_changed"]
