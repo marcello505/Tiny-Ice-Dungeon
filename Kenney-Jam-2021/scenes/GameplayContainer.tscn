@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/LevelLayer.gd" type="Script" id=3]
 [ext_resource path="res://scenes/animations/GameplayContainer_Rotate_Counter_Clockwise.tres" type="Animation" id=4]
 [ext_resource path="res://scenes/animations/GameplayContainer_Rotate_Clockwise.tres" type="Animation" id=5]
-[ext_resource path="res://objects/UI/VolumeSlider.gd" type="Script" id=6]
+[ext_resource path="res://objects/UI/VolumeSlider.tscn" type="PackedScene" id=6]
 [ext_resource path="res://imports/audio/Yi Nantiro - Blue Lantern.ogg" type="AudioStream" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -305,13 +305,7 @@ margin_bottom = 56.0
 text = "Volume"
 align = 1
 
-[node name="VolumeSlider" type="HSlider" parent="HudLayer/PauseMenu/VBoxContainer"]
-margin_top = 60.0
-margin_right = 106.0
-margin_bottom = 76.0
-min_value = -80.0
-max_value = 0.0
-script = ExtResource( 6 )
+[node name="VolumeSlider" parent="HudLayer/PauseMenu/VBoxContainer" instance=ExtResource( 6 )]
 
 [node name="BtnQuit" type="Button" parent="HudLayer/PauseMenu/VBoxContainer"]
 margin_top = 80.0
@@ -339,6 +333,5 @@ autoplay = true
 bus = "Music"
 
 [connection signal="pressed" from="HudLayer/PauseMenu/VBoxContainer/BtnResume" to="." method="toggle_pause"]
-[connection signal="value_changed" from="HudLayer/PauseMenu/VBoxContainer/VolumeSlider" to="HudLayer/PauseMenu/VBoxContainer/VolumeSlider" method="_on_VolumeSlider_value_changed"]
 [connection signal="pressed" from="HudLayer/PauseMenu/VBoxContainer/BtnQuit" to="." method="_on_BtnQuit_pressed"]
 [connection signal="timeout" from="LevelChangeDelay" to="." method="_on_level_complete"]

@@ -22,7 +22,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 168.0
+margin_top = 168.0
+margin_right = 168.0
+margin_bottom = 168.0
+
+[node name="TileMap" type="TileMap" parent="CenterContainer"]
+position = Vector2( -168, -168 )
 tile_set = ExtResource( 8 )
 cell_size = Vector2( 16, 16 )
 format = 1
