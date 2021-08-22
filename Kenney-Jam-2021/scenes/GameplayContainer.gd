@@ -3,6 +3,7 @@ class_name GameplayContainer
 
 #CONSTS
 const MAIN_MENU_PATH = "res://scenes/MainMenu.tscn"
+const END_SCREEN_PATH = "res://scenes/EndMenu.tscn"
 
 #EXPORT VARS
 export(NodePath) var FIRST_BUTTON_PATH = NodePath("HudLayer/PauseMenu/VBoxContainer/BtnResume")
@@ -32,7 +33,9 @@ func _load_level():
 	#Load level
 	var level_to_load : int = ProjectSettings.get("tinyicedungeon/level_select/current_level")
 	var array_levels : Array = ProjectSettings.get("tinyicedungeon/level_select/levels_available")
-	assert(level_to_load >= 0 && level_to_load < array_levels.size())
+	if(!(level_to_load >= 0 && level_to_load < array_levels.size())):
+		get_tree().change_scene(END_SCREEN_PATH)
+		return
 	var level : PackedScene = load(array_levels[level_to_load])
 	
 	#Add level to scene
