@@ -31,9 +31,11 @@ func _physics_process(delta):
 		_handle_movement()
 	_handle_current_tile()
 
-func _interact():
+func _interact()->bool:
 	if(direction == Vector2()):
 		return false 
+	elif(_is_inside_wall()):
+		return false
 	var object = _rayCast.get_chess_piece_object(Vector2() + (direction * cell_size))
 	if(object != null):
 		return object.interact()
@@ -43,18 +45,19 @@ func _interact():
 func _handle_current_tile():
 	_update_grid_position()
 	var object_type = _rayCast.get_chess_piece_object_type(Vector2())
+	match(_tileMap.get_cell(grid_position.x, grid_position.y)):
+		PIT_ID:
+			fall()
+			return
+		DRY_PATCH_ID:
+			_timer.stop()
+			direction = Vector2()
+			set_physics_process(true)
 	match(object_type):
 		Types.GOAL:
 			print("You Win!")
 			_tileMap.goal_reached()
 			_timer.stop()
-	match(_tileMap.get_cell(grid_position.x, grid_position.y)):
-		PIT_ID:
-			fall()
-		DRY_PATCH_ID:
-			_timer.stop()
-			direction = Vector2()
-			set_physics_process(true)
 
 func _handle_movement():
 	_update_grid_position()
