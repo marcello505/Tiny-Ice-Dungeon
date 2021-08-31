@@ -84,3 +84,27 @@ jobs:
           name: mac
           path: build/mac
 
+  deploy-itch-win:
+    name: Windows Itch.io Deploy
+    runs-on: ubuntu-latest
+    needs: export-windows
+    container:
+      image: barichello/godot-ci:3.2.3
+    steps:
+      - name: Prepare Directory
+        run: |
+          mkdir -v -p deploy/win
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.0.10
+        with:
+          # Artifact name
+          name: windows
+          # Destination path
+          path: ./deploy/win/windows.zip
+      - name: Butler
+        env: # Or as an environment variable
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+          ITCHIO_GAME: ${{ secrets.ITCHIO_GAME }}
+          ITCHIO_USERNAME: ${{ secrets.ITCHIO_USERNAME }}
+        run: |
+          butler push ./deploy/win/windows.zip $ITCHIO_USERNAME/$ITCHIO_GAME:windows
