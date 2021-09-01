@@ -266,7 +266,7 @@ margin_top = 108.0
 margin_right = 189.0
 margin_bottom = 118.0
 custom_fonts/font = ExtResource( 5 )
-text = "L2"
+text = "R1"
 align = 1
 
 [node name="ResetLevel" type="Label" parent="MenuContainer/ControlsContainer/GridContainer"]

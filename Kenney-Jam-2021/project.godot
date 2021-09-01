@@ -138,5 +138,5 @@ quality/dynamic_fonts/use_oversampling=false
 
 [tinyicedungeon]
 
-level_select/levels_available=[ "res://levels/Level_1.tscn", "res://levels/Level_2.tscn", "res://levels/Level_3.tscn", "res://levels/Level_4.tscn", "res://levels/Level_5.tscn", "res://levels/Level_6.tscn", "res://levels/Level_7.tscn" ]
+level_select/levels_available=[ "res://levels/Level_1.tscn", "res://levels/Level_2.tscn", "res://levels/Level_3.tscn", "res://levels/Level_4.tscn", "res://levels/Level_5.tscn", "res://levels/Post-Jam Levels/PJ_Level_2.tscn", "res://levels/Level_6.tscn", "res://levels/Level_7.tscn", "res://levels/Post-Jam Levels/PJ_Level_1.tscn" ]
 level_select/current_level=0
