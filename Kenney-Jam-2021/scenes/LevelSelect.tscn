@@ -15,8 +15,7 @@ __meta__ = {
 }
 
 [node name="MenuContainer" type="VBoxContainer" parent="."]
-margin_left = 4.0
-margin_right = 340.0
+margin_right = 336.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 336, 336 )
 custom_constants/separation = 50
@@ -124,11 +123,21 @@ margin_bottom = 55.0
 text = "Level 8"
 level_select = 7
 
-[node name="ReturnBtn5" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+[node name="StartBtn9" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 70.0
 margin_right = 74.0
+margin_bottom = 90.0
+text = "Level 9"
+level_select = 8
+
+[node name="ReturnBtn5" parent="MenuContainer/ButtonsContainer/HAlign" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_top = 70.0
+margin_right = 152.0
 margin_bottom = 90.0
 text = "Back"
 scene = "res://scenes/MainMenu.tscn"
